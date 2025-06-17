@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selección de Materias - Sistema de Inscripción</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Header con logo y nombre del sistema -->
+  <header class="bg-primary shadow-sm py-3 mb-4">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center text-white">
+        <img src="https://cdn-icons-png.flaticon.com/512/3816/3816530.png" alt="Logo" class="logo me-3" style="width:48px; height:48px;" />
+        <h1 class="h3 fw-bold m-0">Sistema de Inscripción</h1>
+      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 bg-transparent">
+          <li class="breadcrumb-item"><a href="/index.html" class="text-white text-decoration-none opacity-75-hover">Datos personales</a></li>
+          <li class="breadcrumb-item active text-white fw-semibold" aria-current="page">Selección de materias</li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mb-5 flex-grow-1">
+    <!-- Información del usuario -->
+    <section class="mb-5">
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-primary fw-semibold border-start border-4 border-primary ps-3">Datos del estudiante</h4>
+          <dl class="row fs-5">
+            <dt class="col-sm-3 text-secondary">Nombre:</dt>
+            <dd class="col-sm-9 fw-semibold" id="nombreUsuario">Cargando...</dd>
+
+            <dt class="col-sm-3 text-secondary">Carrera seleccionada:</dt>
+            <dd class="col-sm-9 text-primary fw-semibold" id="carreraUsuario">Cargando...</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario para seleccionar materias -->
+    <section>
+      <div class="card shadow rounded-4 border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-primary fw-semibold border-bottom border-3 border-primary pb-2">Selecciona tus materias</h4>
+          <form id="formMaterias" novalidate>
+            <div id="materiasContainer" class="row gy-4">
+              <!-- Aquí se insertan las materias con JS -->
+            </div>
+
+            <div class="mt-5">
+              <label for="comentarios" class="form-label fw-semibold">Comentarios o notas (opcional)</label>
+              <textarea class="form-control shadow-sm" id="comentarios" rows="4" placeholder="Escribe alguna nota o comentario..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-5 w-100 fs-5 fw-bold shadow-sm" style="letter-spacing: 0.05em;">
+              Confirmar Inscripción
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal para confirmar inscripción -->
+  <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-primary fw-bold fs-4" id="modalConfirmacionLabel">Confirmar Inscripción</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <section class="mb-3">
+            <h6 class="text-secondary fw-semibold">Estudiante:</h6>
+            <p id="modalNombre" class="fw-semibold"></p>
+          </section>
+          <section class="mb-3">
+            <h6 class="text-secondary fw-semibold">Carrera:</h6>
+            <p id="modalCarrera" class="fw-semibold"></p>
+          </section>
+          <section class="mb-3">
+            <h6 class="text-secondary fw-semibold">Materias seleccionadas:</h6>
+            <ul id="modalMaterias" class="list-group list-group-flush"></ul>
+          </section>
+          <section>
+            <h6 class="text-secondary fw-semibold">Comentarios:</h6>
+            <p id="modalComentarios" class="fst-italic text-muted"></p>
+          </section>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-outline-secondary fw-semibold" data-bs-dismiss="modal">Editar</button>
+          <button type="button" id="btnConfirmar" class="btn btn-success fw-semibold shadow-sm">Confirmar Inscripción</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-primary text-white py-4 mt-auto">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <small>&copy; 2025 Universidad Ejemplo. Todos los derechos reservados.</small>
+      <div>
+        <a href="#" class="text-white text-decoration-none me-3 opacity-75-hover">Política de privacidad</a>
+        <a href="#" class="text-white text-decoration-none opacity-75-hover">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/selection/selection.js"></script>
+</body>
+</html>
