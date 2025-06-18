@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selección de Materias - Sistema de Inscripción</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/selection/selection.css" />
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 
@@ -42,27 +44,49 @@
     </section>
 
     <!-- Formulario para seleccionar materias -->
-    <section>
-      <div class="card shadow rounded-4 border-0">
-        <div class="card-body">
-          <h4 class="card-title mb-4 text-primary fw-semibold border-bottom border-3 border-primary pb-2">Selecciona tus materias</h4>
-          <form id="formMaterias" novalidate>
-            <div id="materiasContainer" class="row gy-4">
-              <!-- Aquí se insertan las materias con JS -->
-            </div>
-
-            <div class="mt-5">
-              <label for="comentarios" class="form-label fw-semibold">Comentarios o notas (opcional)</label>
-              <textarea class="form-control shadow-sm" id="comentarios" rows="4" placeholder="Escribe alguna nota o comentario..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-5 w-100 fs-5 fw-bold shadow-sm" style="letter-spacing: 0.05em;">
-              Confirmar Inscripción
-            </button>
-          </form>
+   <!-- Formulario para seleccionar materias -->
+<section>
+  <div class="card shadow rounded-4 border-0">
+    <div class="card-body">
+      <h4 class="card-title mb-4 text-primary fw-semibold border-bottom border-3 border-primary pb-2">Selecciona tus materias</h4>
+      <form id="formMaterias" novalidate>
+        <div id="materiasContainer" class="row gy-4">
+          <!-- Aquí se insertan las materias con JS -->
         </div>
-      </div>
-    </section>
+
+        <!-- Botón para confirmar inscripción -->
+        <button type="submit" class="btn btn-primary mt-5 w-100 fs-5 fw-bold shadow-sm" style="letter-spacing: 0.05em;">
+          Confirmar Inscripción
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Mesa de Ayuda -->
+<section class="mt-5">
+  <h4 class="text-primary fw-bold border-bottom pb-2 mb-4">🛠️ Mesa de Ayuda</h4>
+  <div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body">
+      <p class="mb-4 fs-5 text-muted">
+        ¿Tienes alguna duda o necesitas asistencia con tu inscripción? Envíanos un mensaje y te responderemos a la brevedad.
+      </p>
+     <form id="formAyuda" action="https://formspree.io/f/xvgalezo" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Tu correo electrónico</label>
+    <input type="email" name="email" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tu mensaje</label>
+    <textarea name="message" class="form-control" rows="4" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary shadow-sm">Enviar consulta</button>
+</form>
+
+    </div>
+  </div>
+</section>
+
   </main>
 
   <!-- Modal para confirmar inscripción -->
@@ -94,24 +118,58 @@
         <div class="modal-footer border-0 pt-0">
           <button type="button" class="btn btn-outline-secondary fw-semibold" data-bs-dismiss="modal">Editar</button>
           <button type="button" id="btnConfirmar" class="btn btn-success fw-semibold shadow-sm">Confirmar Inscripción</button>
+          <a href="/confirmation/confirmation.html">asdasdasd</a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="footer bg-primary text-white py-4 mt-auto">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <small>&copy; 2025 Universidad Ejemplo. Todos los derechos reservados.</small>
-      <div>
-        <a href="#" class="text-white text-decoration-none me-3 opacity-75-hover">Política de privacidad</a>
-        <a href="#" class="text-white text-decoration-none opacity-75-hover">Contacto</a>
-      </div>
+  
+<footer class="bg-gray-800 text-white mt-10">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between">
+    <div class="mb-4 md:mb-0">
+      <h2 class="text-lg font-semibold">ProfessionalCV</h2>
+      <p class="text-sm text-gray-400">Conectando talento con oportunidades desde 2023.</p>
+      <p class="text-sm text-gray-400 mt-2">
+        Desarrollado por 
+        <a href="https://www.linkedin.com/in/emil-echavarria/" class="text-blue-400 hover:underline" target="_blank">Emil Echavarría</a>
+      </p>
     </div>
-  </footer>
+    <div class="flex space-x-4">
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Inicio</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Sobre Nosotros</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Contacto</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Privacidad</a>
+
+
+      <div class="powr-hit-counter" id="3916ed37_1749706330"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
+      <p>Visitas a esta página: <span id="visits"></span></p>
+
+      <script>
+      let visits = localStorage.getItem('visits') || 0;
+        visits = Number(visits) + 1;
+        localStorage.setItem('visits', visits);
+        document.getElementById('visits').textContent = visits;
+      </script>
+
+
+    </div>
+  </div>
+  <div class="flex justify-center space-x-4 py-4 bg-gray-900 text-sm text-gray-400">
+    <a href="https://github.com/EmilEchavarria" target="_blank" class="hover:text-white">GitHub</a>
+    <a href="https://www.linkedin.com/in/emil-echavarria/" target="_blank" class="hover:text-white">LinkedIn</a>
+    <a href="https://www.instagram.com/emilechavarria.c/" target="_blank" class="hover:text-white">Instagram</a>
+    <a href="https://emilechavarria.vercel.app" target="_blank" class="hover:text-white">Portfolio</a>
+  </div>
+  <div class="text-center bg-gray-900 pb-4 text-sm text-gray-500">
+    © 2025 ProfessionalCV. Todos los derechos reservados.
+  </div>
+</footer>
 
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/selection/selection.js"></script>
 </body>
 </html>

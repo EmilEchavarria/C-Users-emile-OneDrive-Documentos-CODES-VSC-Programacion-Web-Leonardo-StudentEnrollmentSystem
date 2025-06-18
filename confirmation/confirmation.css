@@ -1,0 +1,11 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-header {
+  font-size: 1.2rem;
+}
+
+#tablaHorario td, #tablaHorario th {
+  vertical-align: middle;
+}

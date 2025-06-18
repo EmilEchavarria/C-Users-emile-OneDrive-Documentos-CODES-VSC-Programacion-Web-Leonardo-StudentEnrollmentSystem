@@ -85,7 +85,7 @@
       <!-- Teléfono -->
       <div class="mb-4">
         <label for="phone" class="form-label fw-semibold">Teléfono</label>
-        <input type="tel" class="form-control form-control-lg" id="phone" name="phone" placeholder="809-123-4567" />
+        <input type="tel" class="form-control form-control-lg" id="phone" name="phone" placeholder="809-123-4567" required/>
       </div>
 
       <!-- Carrera -->
@@ -103,32 +103,59 @@
       </div>
 
       <div class="d-flex justify-content-center gap-3">
-        <button type="submit" class="btn btn-primary btn-lg px-5 fw-semibold shadow-sm">Inscribir</button>
+    <button type="button" id="btnContinuar" class="btn btn-primary">Inscribir</button>
         <button type="reset" class="btn btn-outline-secondary btn-lg px-5 fw-semibold shadow-sm">Limpiar</button>
       </div>
     </form>
 
-    <hr class="my-5" />
 
-    <h2 class="mb-4 text-center fw-bold text-secondary">Lista de Inscritos</h2>
-    <div class="table-responsive shadow-sm rounded bg-white">
-      <table class="table table-striped mb-0 align-middle" id="inscriptionTable">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre Completo</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Carrera</th>
-            <th scope="col" class="text-center">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se insertarán las filas con JS -->
-        </tbody>
+    <div class="d-none">
+        <table id="inscriptionTable">
+            <tbody></tbody>
       </table>
     </div>
+
+    
+<footer class="bg-gray-800 text-white mt-10">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between">
+    <div class="mb-4 md:mb-0">
+      <h2 class="text-lg font-semibold">ProfessionalCV</h2>
+      <p class="text-sm text-gray-400">Conectando talento con oportunidades desde 2023.</p>
+      <p class="text-sm text-gray-400 mt-2">
+        Desarrollado por 
+        <a href="https://www.linkedin.com/in/emil-echavarria/" class="text-blue-400 hover:underline" target="_blank">Emil Echavarría</a>
+      </p>
+    </div>
+    <div class="flex space-x-4">
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Inicio</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Sobre Nosotros</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Contacto</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Privacidad</a>
+
+
+      <div class="powr-hit-counter" id="3916ed37_1749706330"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
+      <p>Visitas a esta página: <span id="visits"></span></p>
+
+      <script>
+      let visits = localStorage.getItem('visits') || 0;
+        visits = Number(visits) + 1;
+        localStorage.setItem('visits', visits);
+        document.getElementById('visits').textContent = visits;
+      </script>
+
+
+    </div>
   </div>
+  <div class="flex justify-center space-x-4 py-4 bg-gray-900 text-sm text-gray-400">
+    <a href="https://github.com/EmilEchavarria" target="_blank" class="hover:text-white">GitHub</a>
+    <a href="https://www.linkedin.com/in/emil-echavarria/" target="_blank" class="hover:text-white">LinkedIn</a>
+    <a href="https://www.instagram.com/emilechavarria.c/" target="_blank" class="hover:text-white">Instagram</a>
+    <a href="https://emilechavarria.vercel.app" target="_blank" class="hover:text-white">Portfolio</a>
+  </div>
+  <div class="text-center bg-gray-900 pb-4 text-sm text-gray-500">
+    © 2025 ProfessionalCV. Todos los derechos reservados.
+  </div>
+</footer>
 
   <!-- Bootstrap JS (Popper + Bootstrap) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
