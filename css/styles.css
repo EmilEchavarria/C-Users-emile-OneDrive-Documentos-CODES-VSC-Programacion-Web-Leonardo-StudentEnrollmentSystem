@@ -24,3 +24,15 @@ table td, table th {
   color: #dc3545;
   cursor: pointer;
 }
+
+
+  footer.footer-dark {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background-color: #232222;
+    margin-top: 78px;
+  }
+  footer.footer-dark .footer-bottom {
+    background-color: #0d0d0d !important; /* Un tono un poco más oscuro para la barra inferior */
+    height: 50px;
+  }

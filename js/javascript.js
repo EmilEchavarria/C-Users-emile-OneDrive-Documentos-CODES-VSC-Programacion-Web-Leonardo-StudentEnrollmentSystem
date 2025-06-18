@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Rellenar campos si hay datos guardados
   const saved = JSON.parse(localStorage.getItem('formData') || '{}');
 
-  const fields = ['fullName', 'province', 'sector', 'street', 'email', 'phone', 'career'];
+const fields = ['fullName', 'province', 'sector', 'street', 'email', 'phone', 'career', 'birthDate'];
   fields.forEach(field => {
     if (saved[field]) {
       const input = document.getElementById(field);
