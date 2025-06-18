@@ -10,15 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const fechaNacimientoUsuario = document.getElementById('fechaNacimientoUsuario');
   const carreraUsuario = document.getElementById('carreraUsuario');
 
-  // Mostrar datos personales con valores por defecto si no hay datos
   if (nombreUsuario) nombreUsuario.textContent = formData.fullName || 'Nombre no disponible';
   if (emailUsuario) emailUsuario.textContent = formData.email || 'Correo no disponible';
   if (telefonoUsuario) telefonoUsuario.textContent = formData.phone || 'Teléfono no disponible';
 
-  // Dirección: compuesta de provincia, sector y calle (o usa formData.address si ya tienes guardado así)
   let direccionCompleta = '';
   if (formData.province || formData.sector || formData.street) {
-    direccionCompleta = 
+    direccionCompleta =
       (formData.province || '') +
       (formData.province && formData.sector ? ', ' : '') +
       (formData.sector || '') +
@@ -27,17 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (direccionUsuario) direccionUsuario.textContent = direccionCompleta || 'Dirección no disponible';
 
-  // Fecha de nacimiento (ajusta el nombre si usas otro campo)
   if (fechaNacimientoUsuario) fechaNacimientoUsuario.textContent = formData.birthDate || 'Fecha no disponible';
-
   if (carreraUsuario) carreraUsuario.textContent = formData.career || 'Carrera no disponible';
 
-  // Tabla de horarios con sábado incluido
+  // Tabla de horarios
   const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
   const tbody = document.querySelector('#tablaHorarios tbody');
   if (!tbody) return;
 
-  tbody.innerHTML = '';
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
 
   if (horariosSeleccionados.length === 0) {
     const tr = document.createElement('tr');
@@ -87,4 +85,43 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+});
+
+document.getElementById('btnExportarPDF').addEventListener('click', () => {
+  // Obtener referencia a jsPDF (usando import global UMD)
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'letter' });
+
+  // Opciones de autotable
+  doc.autoTable({
+    html: '#tablaHorarios',
+    startY: 40,
+    styles: {
+      fontSize: 8,
+      cellPadding: 4,
+      overflow: 'linebreak',
+      halign: 'center',
+      valign: 'middle',
+      lineColor: [0, 0, 0],
+      lineWidth: 0.2,
+    },
+    headStyles: {
+      fillColor: [13, 110, 253],  // azul bootstrap
+      textColor: 255,
+      fontStyle: 'bold',
+      halign: 'center',
+    },
+    columnStyles: {
+      0: { halign: 'left', fontStyle: 'bold' }, // primera columna a la izquierda
+    },
+    margin: { top: 40, left: 40, right: 40, bottom: 40 },
+    didDrawPage: (data) => {
+      // Puedes agregar encabezado o pie si quieres
+      doc.setFontSize(14);
+      doc.setTextColor(40);
+      doc.text('Horario Seleccionado', data.settings.margin.left, 30);
+    }
+  });
+
+  doc.save('HorarioSeleccionado.pdf');
 });

@@ -9,23 +9,139 @@ document.addEventListener('DOMContentLoaded', () => {
     carreraUsuario.textContent = formData.career || 'Carrera no disponible';
   }
 
-  const materiasPorCarrera = {
-    "Desarrollo de Software": [
-      "Programación III", "Base de Datos I", "Estructura de Datos", "Ingeniería de Software", "Programación Web"
-    ],
-    "Ciber Seguridad": [
-      "Fundamentos de Seguridad", "Criptografía", "Ética Hacker", "Seguridad en Redes", "Análisis Forense Digital"
-    ],
-    "Multimedia": [
-      "Diseño Gráfico", "Animación Digital", "Edición de Video", "Diseño 3D", "Diseño Web"
-    ],
-    "Seguridad Informatica": [
-      "Seguridad de Sistemas Operativos", "Auditoría de Sistemas", "Gestión de Incidentes", "Pentesting", "Hacking Ético"
-    ],
-    "Inteligencia Artificial": [
-      "Introducción a la IA", "Machine Learning", "Redes Neuronales", "Procesamiento de Lenguaje Natural", "Visión por Computadora"
-    ]
-  };
+const materiasPorCarrera = {
+  "Desarrollo de Software": [
+    "Fundamentos de Programación",
+    "Lógica Computacional",
+    "Introducción a las Bases de Datos",
+    "Diseño de Interfaces",
+    "Algoritmos y Pensamiento Computacional",
+    "Metodologías Ágiles",
+    "Programación Web",
+    "Introducción a Git y Control de Versiones"
+  ],
+  "Redes de Información": [
+    "Fundamentos de Redes",
+    "Topologías de Red",
+    "Dispositivos de Comunicación",
+    "Introducción a Cableado Estructurado",
+    "Protocolos de Comunicación Básicos",
+    "Conceptos de IP y Subredes",
+    "Redes LAN y WAN",
+    "Configuración Inicial de Routers"
+  ],
+  "Seguridad Informática": [
+    "Fundamentos de Seguridad Informática",
+    "Gestión de Contraseñas",
+    "Buenas Prácticas en Ciberseguridad",
+    "Tipos de Amenazas Digitales",
+    "Seguridad en Correo Electrónico",
+    "Navegación Segura en Internet",
+    "Introducción a Antivirus y Firewalls",
+    "Seguridad Física y Digital"
+  ],
+  "Multimedia": [
+    "Introducción al Diseño Gráfico",
+    "Fundamentos de Animación Digital",
+    "Edición Básica de Imágenes",
+    "Producción de Contenido Multimedia",
+    "Uso de Software de Edición (Canva, Photoshop básico)",
+    "Narrativa Visual",
+    "Fotografía Digital Inicial",
+    "Creación de Contenido para Redes"
+  ],
+  "Mecatrónica": [
+    "Fundamentos de Electrónica",
+    "Mecánica Básica",
+    "Principios de Automatización",
+    "Introducción a Sensores y Actuadores",
+    "Sistemas Eléctricos Simples",
+    "Lectura de Planos Mecánicos",
+    "Control Manual de Procesos",
+    "Herramientas de Taller"
+  ],
+  "Inteligencia Artificial": [
+    "Fundamentos de Inteligencia Artificial",
+    "Pensamiento Computacional",
+    "Ética en IA",
+    "Modelos Simples de IA",
+    "Introducción a Datos y Variables",
+    "Conceptos de Automatización Inteligente",
+    "IA en la Vida Cotidiana",
+    "Herramientas Visuales de IA (Teóricas)"
+  ],
+  "Analítica de Datos": [
+    "Fundamentos de Análisis de Datos",
+    "Introducción a Microsoft Excel",
+    "Representación Gráfica de Datos",
+    "Limpieza de Datos Básica",
+    "Estadística Descriptiva",
+    "Toma de Decisiones con Datos",
+    "Uso de Google Sheets",
+    "Visualización con Gráficos Simples"
+  ],
+  "Manufactura Automatizada": [
+    "Procesos Industriales Básicos",
+    "Herramientas de Manufactura",
+    "Seguridad Industrial",
+    "Dibujo Técnico",
+    "Materiales de Producción",
+    "Interpretación de Planos",
+    "Fundamentos de Producción",
+    "Mantenimiento Preventivo"
+  ],
+  "Sonido": [
+    "Introducción al Sonido",
+    "Captura de Audio",
+    "Edición de Audio Básica",
+    "Formatos de Sonido Digital",
+    "Uso de Micrófonos",
+    "Ambientes Sonoros",
+    "Grabación Casera",
+    "Uso de Audacity y Apps Similares"
+  ],
+  "Desarrollo de Videojuegos": [
+    "Introducción al Diseño de Videojuegos",
+    "Tipos de Videojuegos",
+    "Diseño de Personajes Básico",
+    "Storytelling para Videojuegos",
+    "Fundamentos de Game Art",
+    "Introducción a Motores Gráficos (Unity, Godot - teórico)",
+    "Diseño de Niveles Manual",
+    "Interfaces de Usuario en Juegos"
+  ],
+  "Energía Renovable": [
+    "Fundamentos de Energía Renovable",
+    "Tipos de Energías Limpias",
+    "Importancia del Medio Ambiente",
+    "Ahorro Energético en el Hogar",
+    "Conceptos Básicos de Energía Solar",
+    "Fuentes Alternativas de Energía",
+    "Uso Doméstico de la Energía",
+    "Energía y Sostenibilidad"
+  ],
+  "Simulaciones Interactivas y Realidad Virtual": [
+    "Fundamentos de Realidad Virtual",
+    "Historia de la Realidad Aumentada",
+    "Diseño de Experiencias Inmersivas",
+    "Herramientas Básicas de Simulación",
+    "Aplicaciones en Salud, Educación y Juegos",
+    "Conceptos Visuales 3D",
+    "Exploración de Entornos Virtuales",
+    "Introducción a Realidad Aumentada Móvil"
+  ],
+  "Arquitectura": [
+    "Introducción al Diseño Arquitectónico",
+    "Dibujo Arquitectónico Básico",
+    "Materiales de Construcción",
+    "Teoría del Espacio",
+    "Historia de la Arquitectura",
+    "Diseño de Maquetas Manuales",
+    "Interpretación de Planos",
+    "Fundamentos de Urbanismo"
+  ]
+};
+
 
   // Horarios (mañana, tarde y noche)
   const horarios = [
@@ -55,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Crear listado dinámico con materias, días y horarios con radios,
-  // pero todos los radios de la materia comparten mismo "name" para que solo uno se pueda elegir
+  
   const crearMateriasConHorarios = (materias) => {
     materiasContainer.innerHTML = '';
 
@@ -122,6 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formData.career && materiasPorCarrera[formData.career]) {
     crearMateriasConHorarios(materiasPorCarrera[formData.career]);
   }
+
+
+  
 
   // Validación y submit del formulario
   const formMaterias = document.getElementById('formMaterias');

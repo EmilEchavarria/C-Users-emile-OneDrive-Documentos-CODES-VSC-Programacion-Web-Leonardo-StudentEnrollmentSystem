@@ -23,3 +23,67 @@ main {
   flex-grow: 1;
 }
 
+
+/* Tabla con bordes sólidos y estilo moderno */
+#tablaHorarios {
+  border-collapse: collapse !important;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#tablaHorarios th, #tablaHorarios td {
+  border: 1px solid #dee2e6 !important; /* color gris claro */
+  padding: 12px 15px !important;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f9fafb; /* fondo suave para celdas */
+  transition: background-color 0.3s ease;
+}
+
+#tablaHorarios th {
+  background-color: #0d6efd; /* bootstrap primary blue */
+  color: white !important;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+#tablaHorarios tbody tr:hover td {
+  background-color: #e7f1ff !important; /* ligero azul al pasar el mouse */
+}
+
+/* Para las filas impares un color ligeramente distinto */
+#tablaHorarios tbody tr:nth-child(odd) td {
+  background-color: #ffffff !important;
+}
+
+/* Para que las primeras columnas (materia) sean un poco más destacadas */
+#tablaHorarios tbody td:first-child {
+  font-weight: 600;
+  color: #212529;
+  text-align: left;
+  background-color: #f0f4ff !important;
+}
+
+/* En dispositivos móviles hacer scroll horizontal */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ajustar la fuente para una mejor lectura */
+body {
+  font-size: 16px;
+  color: #212529;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Espacio entre los botones */
+  margin-bottom: 40px ;
+  margin-top: 40px!important;
+}
